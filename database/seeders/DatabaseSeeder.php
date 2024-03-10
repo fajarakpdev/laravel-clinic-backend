@@ -28,5 +28,17 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
 
         ]);
+
+        \App\Models\ProfileClinic::factory()->create([
+            'name' => 'Griya Sehat Fajar',
+            'address' => 'Jln A. Yani Sidoarjo',
+            'phone' => '081298542192',
+            'email' => 'fajar@klinik.com',
+            'doctor_name' => 'dr fajar',
+            'unique_code' => '234234',
+        ]);
+
+        //call doctor seeder
+        $this->call(DoctorSeeder::class);
     }
 }
