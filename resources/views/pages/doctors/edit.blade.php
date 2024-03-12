@@ -72,15 +72,24 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Photo Doctor</label>
-                                <div class="col-sm-9">
-                                    <input type="file" class="form-control" name="photo">
-                                </div>
+                                <label>Photo</label>
+                                <input type="text"
+                                    class="form-control @error('photo')
+                                    is-invalid
+                                    @enderror"
+                                    name="photo" value="{{ $doctor->photo }}">
                                 @error('photo')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
+                                <br>
+                                @if ($doctor->photo)
+                                    <div>
+                                        <img src="{{ asset($doctor->photo) }}" alt="Doctor Photo"
+                                            style="max-width: 200px; max-height: 200px;">
+                                    </div>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Address</label>

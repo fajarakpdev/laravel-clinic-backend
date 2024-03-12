@@ -62,6 +62,7 @@
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Specialist</th>
+                                            <th>Photo</th>
                                             {{-- <th>Created At</th> --}}
                                             <th>Action</th>
                                         </tr>
@@ -78,6 +79,12 @@
                                                 </td>
                                                 <td>
                                                     {{ $doctor->doctor_specialist }}
+                                                </td>
+                                                <td>
+                                                    <br>
+                                                    <img src="{{ asset($doctor->photo) }}" alt="Doctor Photo"
+                                                        style="width: 100px; height:100px; border-radius:50%; overflow:hidden">
+
                                                 </td>
                                                 {{-- <td>{{ $doctor->created_at }}</td> --}}
                                                 <td>

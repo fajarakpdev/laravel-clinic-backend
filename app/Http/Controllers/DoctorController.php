@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
 {
@@ -37,6 +38,7 @@ class DoctorController extends Controller
             'sip' => 'required',
         ]);
 
+
         DB::table('doctors')->insert([
             'doctor_name' => $request->doctor_name,
             'doctor_specialist' => $request->doctor_specialist,
@@ -61,14 +63,18 @@ class DoctorController extends Controller
         return view('pages.doctors.edit', compact('doctor'));
     }
 
+
+
     //update
     public function update(Request $request, $id)
+
     {
         $request->validate([
             'doctor_name' => 'required',
             'doctor_specialist' => 'required',
             'doctor_phone' => 'required',
             'doctor_email' => 'required|email',
+            'photo' => 'nullable|url',
             'sip' => 'required',
         ]);
 
@@ -77,8 +83,10 @@ class DoctorController extends Controller
             'doctor_specialist' => $request->doctor_specialist,
             'doctor_phone' => $request->doctor_phone,
             'doctor_email' => $request->doctor_email,
+            'photo' => $request->photo,
             'sip' => $request->sip,
         ]);
+
 
         return redirect()->route('doctors.index')->with('success', 'Doctor update successfully');
     }
