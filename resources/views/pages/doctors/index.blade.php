@@ -82,8 +82,14 @@
                                                 </td>
                                                 <td>
                                                     <br>
-                                                    <img src="{{ asset($doctor->photo) }}" alt="Doctor Photo"
-                                                        style="width: 100px; height:100px; border-radius:50%; overflow:hidden">
+                                                    {{-- <img src="{{ asset($doctor->photo) }}" alt="Doctor Photo"
+                                                        style="width: 100px; height:100px; border-radius:50%; overflow:hidden"> --}}
+                                                    @if ($doctor->photo)
+                                                        <img src="{{ asset('' . $doctor->photo) }}" alt=""
+                                                            width="100" class="img-thumbnail">
+                                                    @else
+                                                        <span class="badge badge-danget">No Photo</span>
+                                                    @endif
 
                                                 </td>
                                                 {{-- <td>{{ $doctor->created_at }}</td> --}}

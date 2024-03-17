@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Advanced Forms')
+@section('title', 'Add Doctor')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -68,7 +68,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Doctor Email</label>
-                                <input type="text"
+                                <input type="email"
                                     class="form-control @error('doctor_email')
                                     is-invalid
                                     @enderror"
@@ -80,24 +80,58 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Photo</label>
+                                <label>SIP</label>
                                 <input type="text"
-                                    class="form-control @error('photo')
+                                    class="form-control @error('sip')
                                     is-invalid
                                     @enderror"
-                                    name="photo">
-                                @error('photo')
+                                    name="sip">
+                                @error('sip')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>SIP</label>
-                                <input type="number" class="form-control" name="sip">
+                                <label>ID IHS</label>
+                                <input type="text"
+                                    class="form-control @error('id_ihs')
+                                    is-invalid
+                                    @enderror"
+                                    name="id_ihs">
+                                @error('id_ihs')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
-
-
+                            <div class="form-group">
+                                <label>NIK</label>
+                                <input type="text"
+                                    class="form-control @error('nik')
+                                    is-invalid
+                                    @enderror"
+                                    name="nik">
+                                @error('nik')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Photo</label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control" name="photo"
+                                        @error('photo')
+                                        is-invalid
+                                        @enderror>
+                                </div>
+                                @error('photo')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>
