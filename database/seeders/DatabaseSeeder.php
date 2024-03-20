@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\DoctorSchedule;
+use App\Models\Doctor;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -39,6 +42,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //call doctor seeder
-        $this->call(DoctorSeeder::class);
+        $this->call([
+            DoctorSeeder::class,
+            DoctorScheduleSeeder::class
+        ]);
     }
 }
